@@ -1,24 +1,24 @@
-import { Hero } from '@/components/Hero';
-import { HowItWorks } from '@/components/HowItWorks';
-import { Features } from '@/components/Features';
-import { Intelligence } from '@/components/Intelligence';
-import { Testimonials } from '@/components/Testimonials';
-import { Pricing } from '@/components/Pricing';
-import { CTA } from '@/components/CTA';
-import { Footer } from '@/components/Footer';
 import { Nav } from '@/components/Nav';
+import { Hero } from '@/components/Hero';
+import { Proof } from '@/components/Proof';
+import { How } from '@/components/How';
+import { Engine } from '@/components/Engine';
+import { Feel } from '@/components/Feel';
+import { Price } from '@/components/Price';
+import { Final } from '@/components/Final';
+import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main>
       <Nav />
       <Hero />
-      <HowItWorks />
-      <Features />
-      <Intelligence />
-      <Testimonials />
-      <Pricing />
-      <CTA />
+      <Proof />
+      <How />
+      <Engine />
+      <Feel />
+      <Price />
+      <Final />
       <Footer />
     </main>
   );

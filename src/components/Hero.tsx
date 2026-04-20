@@ -1,44 +1,44 @@
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-16">
-      {/* Subtle glow */}
-      <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-ice/[0.06] blur-[120px]" />
+    <section className="relative min-h-[100svh] flex flex-col justify-end px-6 pb-20 pt-32 md:justify-center md:pb-32">
+      {/* Background orb */}
+      <div className="glow-orb pointer-events-none absolute top-[20%] left-[60%] -translate-x-1/2 h-[800px] w-[800px] rounded-full bg-ice blur-[200px]" />
 
-      <div className="relative z-10 mx-auto max-w-3xl text-center">
-        <p className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-on-variant">
+      <div className="relative z-10 max-w-7xl mx-auto w-full">
+        <p className="animate-fade-up font-mono text-[11px] uppercase tracking-[0.35em] text-on-variant mb-8">
           Your training, on autopilot
         </p>
-        <h1 className="font-serif text-6xl italic leading-[1.05] text-on-surface md:text-8xl">
+
+        <h1 className="animate-fade-up-delay-1 font-serif italic text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-tight text-on-surface max-w-4xl">
           Move.
           <br />
-          We handle
-          <br />
-          the rest.
+          We handle the rest.
         </h1>
-        <p className="mx-auto mt-8 max-w-lg text-lg leading-relaxed text-on-variant">
-          Forma builds your workout, adapts your progression, and adjusts
-          tomorrow based on today. No thinking required.
+
+        <p className="animate-fade-up-delay-2 mt-8 max-w-md text-[17px] leading-relaxed text-on-variant">
+          Forma builds your workout, sets your targets, and adjusts
+          tomorrow based on what you did today. Open the app. Train. Leave.
         </p>
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+
+        <div className="animate-fade-up-delay-3 mt-12 flex items-center gap-5">
           <a
             href="#download"
-            className="inline-flex h-14 items-center rounded-full bg-on-surface px-8 text-base font-semibold text-black transition hover:bg-white"
+            className="group inline-flex h-12 items-center gap-2 rounded-full bg-on-surface pl-6 pr-5 text-[14px] font-semibold text-black transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             Download for iOS
+            <span className="transition-transform group-hover:translate-x-0.5">&rarr;</span>
           </a>
           <a
             href="#how"
-            className="inline-flex h-14 items-center rounded-full border border-white/10 px-8 text-base font-medium text-on-variant transition hover:border-white/20 hover:text-on-surface"
+            className="text-[14px] text-on-variant transition-colors hover:text-on-surface"
           >
-            See how it works
+            How it works
           </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
-        <div className="h-10 w-[1px] bg-gradient-to-b from-transparent via-on-variant/30 to-transparent" />
-      </div>
+      {/* Bottom line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
     </section>
   );
 }
