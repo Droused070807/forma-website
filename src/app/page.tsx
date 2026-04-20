@@ -1,25 +1,281 @@
-import { Nav } from '@/components/Nav';
-import { Hero } from '@/components/Hero';
-import { Proof } from '@/components/Proof';
-import { How } from '@/components/How';
-import { Engine } from '@/components/Engine';
-import { Feel } from '@/components/Feel';
-import { Price } from '@/components/Price';
-import { Final } from '@/components/Final';
-import { Footer } from '@/components/Footer';
-
 export default function Home() {
   return (
     <main>
-      <Nav />
-      <Hero />
-      <Proof />
-      <How />
-      <Engine />
-      <Feel />
-      <Price />
-      <Final />
-      <Footer />
+      {/* ── Nav ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-2xl">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+          <span className="text-[15px] font-semibold tracking-tight">
+            Forma<span className="text-[#6b7fff]">.</span>
+          </span>
+          <a
+            href="#get"
+            className="text-[13px] text-[#7a7a7a] transition-colors hover:text-[#f0f0f0]"
+          >
+            Get the app &rarr;
+          </a>
+        </div>
+      </nav>
+
+      {/* ── 1. Opening ── */}
+      <section className="min-h-[100svh] flex items-end md:items-center px-6 pb-24 pt-28 md:pb-0">
+        <div className="max-w-6xl mx-auto w-full">
+          <h1 className="animate-in font-serif italic text-[clamp(2.8rem,7.5vw,6.5rem)] leading-[0.92] tracking-tight max-w-3xl">
+            Your gym app
+            <br />
+            shouldn&apos;t need
+            <br />
+            a tutorial.
+          </h1>
+          <p className="animate-in delay-1 mt-10 max-w-md text-[17px] leading-[1.65] text-[#7a7a7a]">
+            Forma tells you what to lift, how heavy, and how many reps.
+            Tomorrow adjusts based on what you actually did. That&apos;s it.
+          </p>
+          <div className="animate-in delay-2 mt-10">
+            <a
+              href="#get"
+              className="inline-flex h-11 items-center rounded-full bg-[#f0f0f0] px-6 text-[13px] font-semibold text-black"
+            >
+              Download for iOS
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 2. The contrast ── */}
+      <section className="px-6 py-32 md:py-44">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl">
+            <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a]">
+              Most fitness apps give you a plan and hope you follow it.
+              <span className="text-[#f0f0f0]"> Forma watches what you actually do</span>
+              &mdash;then rewrites tomorrow.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. What a day looks like ── */}
+      <section className="px-6 py-32 md:py-44">
+        <div className="max-w-6xl mx-auto">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-16">
+            A day with Forma
+          </p>
+
+          <div className="md:flex md:gap-20 lg:gap-32">
+            {/* Left: the narrative */}
+            <div className="md:w-1/2 space-y-20">
+              <Moment
+                time="Morning"
+                text="You open the app. Your workout is there. Bench Press, Row, Shoulder Press, Curl, Tricep Pushdown. Sets, reps, and exact weight targets — all calculated from your last three sessions."
+              />
+              <Moment
+                time="During"
+                text="You follow the screen. Log each set with a tap. The rest timer counts down and auto-continues. You never touch your phone between sets unless you want to."
+              />
+              <Moment
+                time="After"
+                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. If you hit every target, weights go up. If you missed a day, volume comes down. You don't configure anything."
+              />
+            </div>
+
+            {/* Right: mock app card */}
+            <div className="md:w-1/2 mt-16 md:mt-0 md:sticky md:top-28 md:self-start">
+              <div className="rounded-2xl border border-white/[0.05] bg-[#0d0d0d] overflow-hidden">
+                <div className="px-6 pt-6 pb-5 border-b border-white/[0.04]">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a7a7a] mb-2">
+                    Wednesday &middot; Upper
+                  </p>
+                  <p className="text-[20px] font-semibold leading-snug tracking-tight mb-2">
+                    Bench is up 10 lb this month.
+                  </p>
+                  <p className="text-[13px] leading-relaxed text-[#7a7a7a]">
+                    3 of 4 sessions done. Keep today controlled.
+                  </p>
+                </div>
+                <div className="px-6 py-4 space-y-0">
+                  <ExRow name="Bench Press" meta="4 &times; 5-8 &middot; 140 lb" active />
+                  <ExRow name="Row" meta="4 &times; 5-8 &middot; 90 lb" />
+                  <ExRow name="Shoulder Press" meta="3 &times; 8-12 &middot; 70 lb" />
+                  <ExRow name="Curl" meta="3 &times; 8-12 &middot; 30 lb" />
+                  <ExRow name="Tricep Pushdown" meta="3 &times; 8-12 &middot; 50 lb" />
+                </div>
+                <div className="px-6 py-4 border-t border-white/[0.04] flex justify-between items-center">
+                  <span className="text-[11px] text-[#7a7a7a]">Momentum</span>
+                  <span className="text-[12px] font-semibold text-[#6b7fff]">Locked in</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. What happens under the hood ── */}
+      <section className="px-6 py-32 md:py-44">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-xl mb-20">
+            <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight">
+              You don&apos;t see any of this.
+              <br />
+              <span className="text-[#7a7a7a]">It just happens.</span>
+            </h2>
+          </div>
+
+          <div className="space-y-0">
+            <Rule
+              trigger="You benched 135 &times; 12 three sessions in a row"
+              result="Next target: 140 &times; 8"
+            />
+            <Rule
+              trigger="You missed Thursday and Friday"
+              result="Monday is shorter, lighter, no guilt screen"
+            />
+            <Rule
+              trigger="You hit every target for 4 straight weeks"
+              result="Deload week. Volume drops 30%. Automatic."
+            />
+            <Rule
+              trigger="You haven&apos;t trained in 10 days"
+              result="Restart session: 3 exercises, 2 sets, easy weights. Just finish."
+            />
+            <Rule
+              trigger="You ate less yesterday"
+              result="Today&apos;s volume is reduced. Recovery priority."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Who this is for ── */}
+      <section className="px-6 py-32 md:py-44">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a] max-w-3xl">
+            For the beginner who doesn&apos;t know where to start.
+            <br />
+            For the lifter who&apos;s been doing the same workout for six months.
+            <br />
+            For anyone who wants to <span className="text-[#f0f0f0]">just train</span> without
+            becoming a spreadsheet person.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 6. Price ── */}
+      <section id="pricing" className="px-6 py-32 md:py-44">
+        <div className="max-w-6xl mx-auto md:flex md:items-start md:justify-between md:gap-16">
+          <div className="md:w-1/2 mb-12 md:mb-0">
+            <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight mb-5">
+              $9.99/month.
+              <br />
+              <span className="text-[#7a7a7a]">Everything. No tiers.</span>
+            </h2>
+            <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm">
+              7-day free trial. No credit card to start.
+              Cancel from your phone anytime.
+            </p>
+          </div>
+          <div className="md:w-1/2 md:max-w-xs md:ml-auto space-y-3">
+            <PriceItem text="Workouts built from your history" />
+            <PriceItem text="Weights that increase when you&apos;re ready" />
+            <PriceItem text="Automatic deload weeks" />
+            <PriceItem text="Rest timer that learns your pace" />
+            <PriceItem text="Weekly coaching recaps" />
+            <PriceItem text="Every future feature" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Close ── */}
+      <section id="get" className="px-6 pt-32 pb-20 md:pt-44 md:pb-28">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif italic text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.95] tracking-tight mb-6">
+            Your first workout
+            <br />
+            is already built.
+          </h2>
+          <p className="text-[16px] leading-relaxed text-[#7a7a7a] max-w-md mb-10">
+            Four questions. Under two minutes. Then you&apos;re training.
+          </p>
+          <a
+            href="https://apps.apple.com/app/forma"
+            className="inline-flex h-12 items-center rounded-full bg-[#f0f0f0] px-7 text-[14px] font-semibold text-black"
+          >
+            Download for iOS &rarr;
+          </a>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="border-t border-white/[0.03] px-6 py-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between">
+          <span className="text-[12px] text-[#7a7a7a]">
+            &copy; {new Date().getFullYear()} Forma
+          </span>
+          <div className="flex items-center gap-5">
+            <a href="/privacy" className="text-[11px] text-[#7a7a7a] hover:text-[#f0f0f0] transition-colors">
+              Privacy
+            </a>
+            <a href="mailto:support@formacoach.app" className="text-[11px] text-[#7a7a7a] hover:text-[#f0f0f0] transition-colors">
+              Support
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
+  );
+}
+
+/* ── Inline components ── */
+
+function Moment({ time, text }: { time: string; text: string }) {
+  return (
+    <div>
+      <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#6b7fff]/60 mb-3">
+        {time}
+      </p>
+      <p className="text-[16px] leading-[1.7] text-[#7a7a7a]">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+function ExRow({ name, meta, active }: { name: string; meta: string; active?: boolean }) {
+  return (
+    <div className="flex items-center justify-between py-3 border-b border-white/[0.03] last:border-0">
+      <span className={`text-[13px] font-medium ${active ? 'text-[#f0f0f0]' : 'text-[#f0f0f0]/50'}`}>
+        {name}
+      </span>
+      <span
+        className={`font-mono text-[11px] ${active ? 'text-[#6b7fff]' : 'text-[#7a7a7a]/60'}`}
+        dangerouslySetInnerHTML={{ __html: meta }}
+      />
+    </div>
+  );
+}
+
+function Rule({ trigger, result }: { trigger: string; result: string }) {
+  return (
+    <div className="border-t border-white/[0.04] py-8 md:py-10 md:flex md:gap-16">
+      <p
+        className="text-[15px] text-[#7a7a7a] md:w-1/2"
+        dangerouslySetInnerHTML={{ __html: trigger }}
+      />
+      <p
+        className="text-[15px] font-medium text-[#f0f0f0] mt-2 md:mt-0 md:w-1/2"
+        dangerouslySetInnerHTML={{ __html: result }}
+      />
+    </div>
+  );
+}
+
+function PriceItem({ text }: { text: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="mt-2 h-1 w-1 rounded-full bg-[#6b7fff] shrink-0" />
+      <span
+        className="text-[14px] leading-relaxed text-[#7a7a7a]"
+        dangerouslySetInnerHTML={{ __html: text }}
+      />
+    </div>
   );
 }
