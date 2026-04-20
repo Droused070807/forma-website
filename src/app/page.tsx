@@ -42,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. The contrast ── */}
-      <section className="px-6 py-32 md:py-44">
+      <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
             <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a]">
@@ -55,7 +55,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. What a day looks like ── */}
-      <section className="px-6 py-32 md:py-44">
+      <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-16">
             A day with Forma
@@ -110,7 +110,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. What happens under the hood ── */}
-      <section className="px-6 py-32 md:py-44">
+      <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-xl mb-20">
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight">
@@ -146,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. Who this is for ── */}
-      <section className="px-6 py-32 md:py-44">
+      <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a] max-w-3xl">
             For the beginner who doesn&apos;t know where to start.
@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* ── 6. Price ── */}
-      <section id="pricing" className="px-6 py-32 md:py-44">
+      <section id="pricing" className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto md:flex md:items-start md:justify-between md:gap-16">
           <div className="md:w-1/2 mb-12 md:mb-0">
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight mb-5">
@@ -185,7 +185,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. Close ── */}
-      <section id="get" className="px-6 pt-32 pb-20 md:pt-44 md:pb-28">
+      <section id="get" className="px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif italic text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.95] tracking-tight mb-6">
             Your first workout
@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-white/[0.03] px-6 py-8">
+      <footer className="border-t border-white/[0.03] px-6 py-6">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <span className="text-[12px] text-[#7a7a7a]">
             &copy; {new Date().getFullYear()} Forma

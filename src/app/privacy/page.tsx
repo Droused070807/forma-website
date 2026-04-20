@@ -58,10 +58,10 @@ export default function Privacy() {
           <p className="pt-6 border-t border-white/[0.06]">
             For privacy questions or deletion support, contact{' '}
             <a
-              href="mailto:support@forma.app"
+              href="mailto:support@formacoach.app"
               className="text-ice hover:underline"
             >
-              support@forma.app
+              support@formacoach.app
             </a>
             .
           </p>
