@@ -62,42 +62,40 @@ export default function Home() {
           </p>
 
           <div className="md:flex md:gap-20 lg:gap-32">
-            {/* Left: the narrative */}
             <div className="md:w-1/2 space-y-20">
               <Moment
                 time="Morning"
-                text="You open the app. Your workout is there. Bench Press, Row, Shoulder Press, Curl, Tricep Pushdown. Sets, reps, and exact weight targets — all calculated from your last three sessions."
+                text="You open the app. Your workout is there. Bench Press, Lat Pulldown, Shoulder Press, Bicep Curl, Rear Delt Fly. Sets, reps, and exact weight targets — all calculated from your last sessions."
               />
               <Moment
                 time="During"
-                text="You follow the screen. Log each set with a tap. The rest timer counts down and auto-continues. You never touch your phone between sets unless you want to."
+                text="You follow the screen. Log each set with a tap. The rest timer learns your pace and auto-continues. Your phone stays in your pocket between sets. Screen stays awake the entire session."
               />
               <Moment
                 time="After"
-                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. If you hit every target, weights go up. If you missed a day, volume comes down. You don't configure anything."
+                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. Hit every target? Weights go up. Missed a day? Volume comes down. You share your session with one tap."
               />
             </div>
 
-            {/* Right: mock app card */}
             <div className="md:w-1/2 mt-16 md:mt-0 md:sticky md:top-28 md:self-start">
               <div className="rounded-2xl border border-white/[0.05] bg-[#0d0d0d] overflow-hidden">
                 <div className="px-6 pt-6 pb-5 border-b border-white/[0.04]">
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a7a7a] mb-2">
-                    Wednesday &middot; Upper
+                    Wednesday &middot; Pull
                   </p>
                   <p className="text-[20px] font-semibold leading-snug tracking-tight mb-2">
-                    Bench is up 10 lb this month.
+                    Barbell Row is up 10 lb this month.
                   </p>
                   <p className="text-[13px] leading-relaxed text-[#7a7a7a]">
                     3 of 4 sessions done. Keep today controlled.
                   </p>
                 </div>
                 <div className="px-6 py-4 space-y-0">
-                  <ExRow name="Bench Press" meta="4 &times; 5-8 &middot; 140 lb" active />
-                  <ExRow name="Row" meta="4 &times; 5-8 &middot; 90 lb" />
-                  <ExRow name="Shoulder Press" meta="3 &times; 8-12 &middot; 70 lb" />
-                  <ExRow name="Curl" meta="3 &times; 8-12 &middot; 30 lb" />
-                  <ExRow name="Tricep Pushdown" meta="3 &times; 8-12 &middot; 50 lb" />
+                  <ExRow name="Barbell Row" meta="4 &times; 5-8 &middot; 105 lb" active />
+                  <ExRow name="Lat Pulldown" meta="4 &times; 5-8 &middot; 95 lb" />
+                  <ExRow name="Face Pull" meta="3 &times; 8-12 &middot; 40 lb" />
+                  <ExRow name="Bicep Curl" meta="3 &times; 8-12 &middot; 30 lb" />
+                  <ExRow name="Rear Delt Fly" meta="3 &times; 8-12 &middot; 15 lb" />
                 </div>
                 <div className="px-6 py-4 border-t border-white/[0.04] flex justify-between items-center">
                   <span className="text-[11px] text-[#7a7a7a]">Momentum</span>
@@ -122,12 +120,12 @@ export default function Home() {
 
           <div className="space-y-0">
             <Rule
-              trigger="You benched 135 &times; 12 three sessions in a row"
-              result="Next target: 140 &times; 8"
+              trigger="You rowed 95 &times; 12 three sessions in a row"
+              result="Next target: 105 &times; 8. Auto-progressed."
             />
             <Rule
               trigger="You missed Thursday and Friday"
-              result="Monday is shorter, lighter, no guilt screen"
+              result="Monday is shorter, lighter. No guilt screen."
             />
             <Rule
               trigger="You hit every target for 4 straight weeks"
@@ -135,17 +133,78 @@ export default function Home() {
             />
             <Rule
               trigger="You haven&apos;t trained in 10 days"
-              result="Restart session: 3 exercises, 2 sets, easy weights. Just finish."
+              result="Restart session: 3 exercises, 2 sets, easy weights."
             />
             <Rule
-              trigger="You ate less yesterday"
-              result="Today&apos;s volume is reduced. Recovery priority."
+              trigger="It&apos;s 9 PM and you didn&apos;t train"
+              result="Rest day auto-logged. Tomorrow adjusts."
+            />
+            <Rule
+              trigger="You finish your last set"
+              result="Rest timer learns your pace for next time."
             />
           </div>
         </div>
       </section>
 
-      {/* ── 5. Who this is for ── */}
+      {/* ── 5. Recovery intelligence ── */}
+      <section className="px-6 py-20 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <div className="md:flex md:gap-20 lg:gap-32 md:items-start">
+            <div className="md:w-1/2 mb-12 md:mb-0">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-5">
+                Recovery
+              </p>
+              <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight mb-6">
+                See your body&apos;s state
+                <br />
+                <span className="text-[#7a7a7a]">at a glance.</span>
+              </h2>
+              <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm mb-8">
+                Forma tracks which muscles you trained and when. A live recovery
+                heatmap shows what&apos;s fatigued, what&apos;s recovering, and
+                what&apos;s ready for the next session. No input required.
+              </p>
+              <div className="space-y-4">
+                <RecoveryPoint
+                  color="#FF6B6B"
+                  text="Chest and shoulders trained yesterday &mdash; still resting"
+                />
+                <RecoveryPoint
+                  color="#F5A524"
+                  text="Back recovering from Tuesday &mdash; almost ready"
+                />
+                <RecoveryPoint
+                  color="#5B7CFF"
+                  text="Legs fully recovered &mdash; ready to train"
+                />
+              </div>
+            </div>
+            <div className="md:w-1/2">
+              <div className="rounded-2xl border border-white/[0.04] bg-[#0d0d0d] p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a7a7a]">
+                    Recovery status
+                  </span>
+                  <span className="text-[12px] text-[#FF6B6B]">Upper body resting</span>
+                </div>
+                <div className="space-y-2">
+                  <RecoveryRow name="Chest" status="Resting" color="#FF6B6B" />
+                  <RecoveryRow name="Shoulders" status="Resting" color="#FF6B6B" />
+                  <RecoveryRow name="Back" status="Recovering" color="#F5A524" />
+                  <RecoveryRow name="Biceps" status="Recovering" color="#F5A524" />
+                  <RecoveryRow name="Core" status="Ready" color="#5B7CFF" />
+                  <RecoveryRow name="Quads" status="Ready" color="#5B7CFF" />
+                  <RecoveryRow name="Hamstrings" status="Fresh" color="#3a3a3a" />
+                  <RecoveryRow name="Calves" status="Fresh" color="#3a3a3a" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Who this is for ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a] max-w-3xl">
@@ -159,7 +218,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. Price ── */}
+      {/* ── 7. Price ── */}
       <section id="pricing" className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto md:flex md:items-start md:justify-between md:gap-16">
           <div className="md:w-1/2 mb-12 md:mb-0">
@@ -174,17 +233,19 @@ export default function Home() {
             </p>
           </div>
           <div className="md:w-1/2 md:max-w-xs md:ml-auto space-y-3">
-            <PriceItem text="Workouts built from your history" />
-            <PriceItem text="Weights that increase when you&apos;re ready" />
+            <PriceItem text="Evidence-based Push/Pull/Legs splits" />
+            <PriceItem text="Auto-progression when you&apos;re ready" />
             <PriceItem text="Automatic deload weeks" />
-            <PriceItem text="Rest timer that learns your pace" />
-            <PriceItem text="Weekly coaching recaps" />
+            <PriceItem text="Smart rest timer that learns your pace" />
+            <PriceItem text="Muscle recovery heatmap" />
+            <PriceItem text="Weekly AI coaching recaps" />
+            <PriceItem text="PR detection and workout history" />
             <PriceItem text="Every future feature" />
           </div>
         </div>
       </section>
 
-      {/* ── 7. Close ── */}
+      {/* ── 8. Close ── */}
       <section id="get" className="px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif italic text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.95] tracking-tight mb-6">
@@ -232,9 +293,7 @@ function Moment({ time, text }: { time: string; text: string }) {
       <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#6b7fff]/60 mb-3">
         {time}
       </p>
-      <p className="text-[16px] leading-[1.7] text-[#7a7a7a]">
-        {text}
-      </p>
+      <p className="text-[16px] leading-[1.7] text-[#7a7a7a]">{text}</p>
     </div>
   );
 }
@@ -256,14 +315,8 @@ function ExRow({ name, meta, active }: { name: string; meta: string; active?: bo
 function Rule({ trigger, result }: { trigger: string; result: string }) {
   return (
     <div className="border-t border-white/[0.04] py-8 md:py-10 md:flex md:gap-16">
-      <p
-        className="text-[15px] text-[#7a7a7a] md:w-1/2"
-        dangerouslySetInnerHTML={{ __html: trigger }}
-      />
-      <p
-        className="text-[15px] font-medium text-[#f0f0f0] mt-2 md:mt-0 md:w-1/2"
-        dangerouslySetInnerHTML={{ __html: result }}
-      />
+      <p className="text-[15px] text-[#7a7a7a] md:w-1/2" dangerouslySetInnerHTML={{ __html: trigger }} />
+      <p className="text-[15px] font-medium text-[#f0f0f0] mt-2 md:mt-0 md:w-1/2" dangerouslySetInnerHTML={{ __html: result }} />
     </div>
   );
 }
@@ -272,10 +325,25 @@ function PriceItem({ text }: { text: string }) {
   return (
     <div className="flex items-start gap-3">
       <span className="mt-2 h-1 w-1 rounded-full bg-[#6b7fff] shrink-0" />
-      <span
-        className="text-[14px] leading-relaxed text-[#7a7a7a]"
-        dangerouslySetInnerHTML={{ __html: text }}
-      />
+      <span className="text-[14px] leading-relaxed text-[#7a7a7a]" dangerouslySetInnerHTML={{ __html: text }} />
+    </div>
+  );
+}
+
+function RecoveryPoint({ color, text }: { color: string; text: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="mt-1.5 h-2 w-2 rounded-full shrink-0" style={{ backgroundColor: color }} />
+      <span className="text-[14px] leading-relaxed text-[#7a7a7a]" dangerouslySetInnerHTML={{ __html: text }} />
+    </div>
+  );
+}
+
+function RecoveryRow({ name, status, color }: { name: string; status: string; color: string }) {
+  return (
+    <div className="flex items-center justify-between py-2.5 border-b border-white/[0.03] last:border-0">
+      <span className="text-[13px] font-medium text-[#f0f0f0]/70">{name}</span>
+      <span className="text-[12px] font-medium" style={{ color }}>{status}</span>
     </div>
   );
 }
