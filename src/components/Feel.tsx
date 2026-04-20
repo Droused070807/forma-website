@@ -2,33 +2,37 @@ export function Feel() {
   return (
     <section className="relative px-6 py-32 md:py-40">
       <div className="mx-auto max-w-7xl">
-        <div className="max-w-xl mx-auto text-center mb-24">
+        <div className="max-w-xl mb-20">
           <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ice mb-5">
-            What people say
+            Who it&apos;s for
           </p>
           <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-semibold leading-[1.1] tracking-tight text-on-surface">
-            They just train.
+            Built for people who want to train,
             <br />
-            Forma does the rest.
+            not become a programmer.
           </h2>
         </div>
 
-        {/* Asymmetric quote layout — not a card grid */}
-        <div className="space-y-16 max-w-3xl mx-auto">
-          <Quote
-            text="I stopped thinking about what to do at the gym. I just open Forma and train. 8 weeks in, bench is up 20 lb."
-            name="Marcus"
-            context="Intermediate &middot; 4 days/week"
+        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.04] md:grid-cols-2">
+          <Persona
+            who="The beginner"
+            problem="Doesn&apos;t know what exercises to do, what weight to use, or how to progress."
+            solve="Forma builds every session from scratch. Just follow the screen."
           />
-          <Quote
-            text="This is the first app that adjusts when I miss days instead of making me feel guilty about it."
-            name="Sarah"
-            context="Beginner &middot; Home gym"
+          <Persona
+            who="The inconsistent lifter"
+            problem="Trains for 3 weeks, misses a week, feels like they&apos;re starting over."
+            solve="Forma detects the gap and builds a comeback session. No reset."
           />
-          <Quote
-            text="The deload week surprised me. I didn&rsquo;t ask for it. Forma just knew. Came back stronger."
-            name="James"
-            context="Intermediate &middot; Full gym"
+          <Persona
+            who="The intermediate who plateaued"
+            problem="Been lifting for a year but weights haven&apos;t moved in months."
+            solve="Forma tracks rep performance across sessions and auto-progresses when you&apos;re ready."
+          />
+          <Persona
+            who="The person who hates planning"
+            problem="Spends 20 minutes deciding what to do, then does the same workout anyway."
+            solve="Open Forma. Your workout is there. Start."
           />
         </div>
       </div>
@@ -36,32 +40,26 @@ export function Feel() {
   );
 }
 
-function Quote({
-  text,
-  name,
-  context,
+function Persona({
+  who,
+  problem,
+  solve,
 }: {
-  text: string;
-  name: string;
-  context: string;
+  who: string;
+  problem: string;
+  solve: string;
 }) {
   return (
-    <div className="border-l-2 border-white/[0.06] pl-8 md:pl-12">
-      <p className="text-[20px] md:text-[24px] leading-relaxed font-light text-on-surface/90 italic">
-        &ldquo;{text}&rdquo;
-      </p>
-      <div className="mt-5 flex items-center gap-3">
-        <div className="h-8 w-8 rounded-full bg-container border border-white/[0.06] flex items-center justify-center text-[12px] font-semibold text-ice">
-          {name[0]}
-        </div>
-        <div>
-          <p className="text-[13px] font-medium text-on-surface">{name}</p>
-          <p
-            className="text-[11px] text-on-variant"
-            dangerouslySetInnerHTML={{ __html: context }}
-          />
-        </div>
-      </div>
+    <div className="bg-surface p-8 md:p-10 border-b border-r border-white/[0.03] last:border-b-0">
+      <p className="text-[13px] font-semibold text-ice mb-4">{who}</p>
+      <p
+        className="text-[14px] leading-relaxed text-on-variant mb-4"
+        dangerouslySetInnerHTML={{ __html: problem }}
+      />
+      <p
+        className="text-[14px] leading-relaxed text-on-surface font-medium"
+        dangerouslySetInnerHTML={{ __html: solve }}
+      />
     </div>
   );
 }
