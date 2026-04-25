@@ -28,15 +28,16 @@ export default function Home() {
           </h1>
           <p className="animate-in delay-1 mt-10 max-w-md text-[17px] leading-[1.65] text-[#7a7a7a]">
             Forma tells you what to lift, how heavy, and how many reps.
-            Tomorrow adjusts based on what you actually did. That&apos;s it.
+            Tomorrow adjusts based on what you actually did. No planning. No thinking.
           </p>
-          <div className="animate-in delay-2 mt-10">
+          <div className="animate-in delay-2 mt-10 flex items-center gap-4">
             <a
               href="#get"
               className="inline-flex h-11 items-center rounded-full bg-[#f0f0f0] px-6 text-[13px] font-semibold text-black"
             >
               Download for iOS
             </a>
+            <span className="text-[13px] text-[#7a7a7a]">7-day free trial</span>
           </div>
         </div>
       </section>
@@ -65,15 +66,15 @@ export default function Home() {
             <div className="md:w-1/2 space-y-20">
               <Moment
                 time="Morning"
-                text="You open the app. Your workout is there. Bench Press, Lat Pulldown, Shoulder Press, Bicep Curl, Rear Delt Fly. Sets, reps, and exact weight targets — all calculated from your last sessions."
+                text="You open the app. Your workout is there — exercises, sets, reps, and exact weight targets calculated from your history. A coaching brief tells you what today is about and why."
               />
               <Moment
                 time="During"
-                text="You follow the screen. Log each set with a tap. The rest timer learns your pace and auto-continues. Your phone stays in your pocket between sets. Screen stays awake the entire session."
+                text="Follow the screen. Log each set with a tap. Need form help? Tap the exercise for a visual guide and coaching cue. The rest timer learns your pace. Your phone stays in your pocket between sets."
               />
               <Moment
                 time="After"
-                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. Hit every target? Weights go up. Missed a day? Volume comes down. You share your session with one tap."
+                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. Share your session with a premium workout card — dark background, key lifts, Forma wordmark."
               />
             </div>
 
@@ -143,6 +144,10 @@ export default function Home() {
               trigger="You finish your last set"
               result="Rest timer learns your pace for next time."
             />
+            <Rule
+              trigger="Three weeks unbroken"
+              result="Your brief says it. Momentum is real."
+            />
           </div>
         </div>
       </section>
@@ -163,7 +168,7 @@ export default function Home() {
               <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm mb-8">
                 Forma tracks which muscles you trained and when. A live recovery
                 heatmap shows what&apos;s fatigued, what&apos;s recovering, and
-                what&apos;s ready for the next session. No input required.
+                what&apos;s ready. No wearable required.
               </p>
               <div className="space-y-4">
                 <RecoveryPoint
@@ -204,7 +209,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. Who this is for ── */}
+      {/* ── 6. What makes Forma different ── */}
+      <section className="px-6 py-20 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-16">
+            Built different
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <FeatureBlock
+              title="Exercise form guides"
+              text="Tap any exercise for a visual guide and coaching cue. YouTube link for deeper form checks. No guessing."
+            />
+            <FeatureBlock
+              title="Metric &amp; imperial"
+              text="Set your units in onboarding. Everything — weights, body weight, trends — follows your preference. lb or kg."
+            />
+            <FeatureBlock
+              title="Shareable workout cards"
+              text="After every session, share a premium dark card with your workout name, key lifts, and the Forma wordmark."
+            />
+            <FeatureBlock
+              title="Edit past workouts"
+              text="Tap any workout in your history to adjust sets, reps, or weights. Add or remove sets. Delete workouts you don't want."
+            />
+            <FeatureBlock
+              title="Body composition context"
+              text="Height and weight input gives Forma the context to calibrate fuel guidance and track your body trend over 12 weeks."
+            />
+            <FeatureBlock
+              title="Try before you pay"
+              text="Complete your first workout before seeing the paywall. Forma earns your subscription — it doesn't gate it."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Who this is for ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a] max-w-3xl">
@@ -218,7 +258,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 7. Price ── */}
+      {/* ── 8. Social proof ── */}
+      <section className="px-6 py-20 md:py-32">
+        <div className="max-w-6xl mx-auto max-w-2xl">
+          <div className="rounded-2xl border border-white/[0.04] bg-[#0d0d0d] p-8 md:p-12">
+            <p className="font-serif italic text-[clamp(1.2rem,2.5vw,1.6rem)] leading-[1.5] text-[#f0f0f0] mb-6">
+              &ldquo;I&apos;ve used Fitbod, Strong, and Hevy. Forma is the only one I&apos;ve actually stuck with.&rdquo;
+            </p>
+            <p className="text-[13px] text-[#7a7a7a]">&mdash; Early access member</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 9. Price ── */}
       <section id="pricing" className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto md:flex md:items-start md:justify-between md:gap-16">
           <div className="md:w-1/2 mb-12 md:mb-0">
@@ -228,7 +280,7 @@ export default function Home() {
               <span className="text-[#7a7a7a]">Everything. No tiers.</span>
             </h2>
             <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm">
-              7-day free trial. No credit card to start.
+              7-day free trial. Your first workout is free before you even see the paywall.
               Cancel from your phone anytime.
             </p>
           </div>
@@ -240,12 +292,15 @@ export default function Home() {
             <PriceItem text="Muscle recovery heatmap" />
             <PriceItem text="Weekly AI coaching recaps" />
             <PriceItem text="PR detection and workout history" />
+            <PriceItem text="Exercise form guides with coaching cues" />
+            <PriceItem text="Shareable post-workout cards" />
+            <PriceItem text="Metric and imperial support" />
             <PriceItem text="Every future feature" />
           </div>
         </div>
       </section>
 
-      {/* ── 8. Close ── */}
+      {/* ── 10. Close ── */}
       <section id="get" className="px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif italic text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.95] tracking-tight mb-6">
@@ -257,7 +312,7 @@ export default function Home() {
             Four questions. Under two minutes. Then you&apos;re training.
           </p>
           <a
-            href="https://apps.apple.com/app/forma"
+            href="https://apps.apple.com/app/forma-smart-training/id6762664309"
             className="inline-flex h-12 items-center rounded-full bg-[#f0f0f0] px-7 text-[14px] font-semibold text-black"
           >
             Download for iOS &rarr;
@@ -317,6 +372,15 @@ function Rule({ trigger, result }: { trigger: string; result: string }) {
     <div className="border-t border-white/[0.04] py-8 md:py-10 md:flex md:gap-16">
       <p className="text-[15px] text-[#7a7a7a] md:w-1/2" dangerouslySetInnerHTML={{ __html: trigger }} />
       <p className="text-[15px] font-medium text-[#f0f0f0] mt-2 md:mt-0 md:w-1/2" dangerouslySetInnerHTML={{ __html: result }} />
+    </div>
+  );
+}
+
+function FeatureBlock({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-xl border border-white/[0.04] bg-[#0d0d0d] p-6">
+      <h3 className="text-[15px] font-semibold text-[#f0f0f0] mb-2 tracking-tight">{title}</h3>
+      <p className="text-[13px] leading-relaxed text-[#7a7a7a]">{text}</p>
     </div>
   );
 }
