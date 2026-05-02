@@ -32,8 +32,8 @@ export default function Home() {
           </p>
           <div className="animate-in delay-2 mt-10 flex items-center gap-4">
             <a
-              href="#get"
-              className="inline-flex h-11 items-center rounded-full bg-[#f0f0f0] px-6 text-[13px] font-semibold text-black"
+              href="https://apps.apple.com/app/forma-smart-training/id6762664309"
+              className="inline-flex h-11 items-center rounded-full bg-[#6b7fff] px-6 text-[13px] font-semibold text-black"
             >
               Download for iOS
             </a>
@@ -66,15 +66,15 @@ export default function Home() {
             <div className="md:w-1/2 space-y-20">
               <Moment
                 time="Morning"
-                text="You open the app. Your workout is there — exercises, sets, reps, and exact weight targets calculated from your history. A coaching brief tells you what today is about and why."
+                text="You open the app. Your workout is there — exercises, sets, reps, and exact weight targets calculated from your history. A coaching brief tells you what today is about and why. A morning notification previews your plan before you even open the app."
               />
               <Moment
                 time="During"
-                text="Follow the screen. Log each set with a tap. Need form help? Tap the exercise for a visual guide and coaching cue. The rest timer learns your pace. Your phone stays in your pocket between sets."
+                text="Follow the screen. Log each set with a tap. Tap any exercise name to see your full history — load over time, best set, last 5 sessions. The rest timer shows on your Lock Screen and Dynamic Island. Your phone stays in your pocket between sets."
               />
               <Moment
                 time="After"
-                text="Two taps to wrap up. Forma logs the day, reads your performance, and quietly rebuilds tomorrow. Share your session with a premium workout card — dark background, key lifts, Forma wordmark."
+                text="Two taps to wrap up. Forma logs the day, reads your performance, detects PRs, and quietly rebuilds tomorrow. Share your session as a premium dark card — brand mark, key lifts, and your win headline."
               />
             </div>
 
@@ -82,7 +82,7 @@ export default function Home() {
               <div className="rounded-2xl border border-white/[0.05] bg-[#0d0d0d] overflow-hidden">
                 <div className="px-6 pt-6 pb-5 border-b border-white/[0.04]">
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#7a7a7a] mb-2">
-                    Wednesday &middot; Pull
+                    Wednesday &middot; Pull &middot; Strength
                   </p>
                   <p className="text-[20px] font-semibold leading-snug tracking-tight mb-2">
                     Barbell Row is up 10 lb this month.
@@ -108,7 +108,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 4. What happens under the hood ── */}
+      {/* ── 4. The split ── */}
+      <section className="px-6 py-20 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-16">
+            Your weekly split
+          </p>
+          <div className="max-w-xl mb-12">
+            <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-semibold leading-[1.1] tracking-tight mb-5">
+              Push. Pull. Legs.
+              <br />
+              <span className="text-[#7a7a7a]">Upper. Pump. Rest.</span>
+            </h2>
+            <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm">
+              Forma builds your split from your training days. 2-day, 3-day, 4-day, 5-day, or 6-day — each one is evidence-based with strength and volume emphasis rotating automatically.
+            </p>
+          </div>
+          <div className="grid grid-cols-7 gap-2 max-w-lg">
+            <SplitDay day="Mon" type="Push" emphasis="Strength" />
+            <SplitDay day="Tue" type="Pull" emphasis="Volume" />
+            <SplitDay day="Wed" type="Legs" emphasis="Strength" />
+            <SplitDay day="Thu" type="Rest" rest />
+            <SplitDay day="Fri" type="Upper" emphasis="Volume" />
+            <SplitDay day="Sat" type="Pump" emphasis="Volume" />
+            <SplitDay day="Sun" type="Rest" rest />
+          </div>
+          <p className="text-[12px] text-[#7a7a7a] mt-4 opacity-60">
+            Example: 5-day split. Forma adjusts based on your selected training days.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 5. What happens under the hood ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-xl mb-20">
@@ -137,6 +168,10 @@ export default function Home() {
               result="Restart session: 3 exercises, 2 sets, easy weights."
             />
             <Rule
+              trigger="You beat your all-time best on Bench Press"
+              result="PR detected. Gold badge. Milestone unlocked."
+            />
+            <Rule
               trigger="It&apos;s 9 PM and you didn&apos;t train"
               result="Rest day auto-logged. Tomorrow adjusts."
             />
@@ -152,7 +187,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. Recovery intelligence ── */}
+      {/* ── 6. Recovery intelligence ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="md:flex md:gap-20 lg:gap-32 md:items-start">
@@ -209,7 +244,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. What makes Forma different ── */}
+      {/* ── 7. What makes Forma different ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#6b7fff] mb-16">
@@ -217,34 +252,46 @@ export default function Home() {
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureBlock
-              title="Exercise form guides"
-              text="Tap any exercise for a visual guide and coaching cue. YouTube link for deeper form checks. No guessing."
+              title="Live Activity timer"
+              text="Your workout timer shows on the Lock Screen and Dynamic Island. See your rest countdown, current exercise, and set count without unlocking."
             />
             <FeatureBlock
-              title="Metric &amp; imperial"
-              text="Set your units in onboarding. Everything — weights, body weight, trends — follows your preference. lb or kg."
+              title="Per-exercise history"
+              text="Tap any exercise name to see your full history — load over time, best set, session count, and your last 5 performances."
             />
             <FeatureBlock
               title="Shareable workout cards"
-              text="After every session, share a premium dark card with your workout name, key lifts, and the Forma wordmark."
+              text="After every session, share a premium dark card image with your win headline, key lifts, and the Forma brand mark."
+            />
+            <FeatureBlock
+              title="Beginner-friendly language"
+              text="Beginners see 'Same weight, focus on form' instead of 'stabilize.' The app adapts its coaching language to your experience level."
+            />
+            <FeatureBlock
+              title="Milestones &amp; PRs"
+              text="First session, 10 sessions, first PR, 3-day streak — Forma celebrates the moments that matter with gold badges and haptic feedback."
+            />
+            <FeatureBlock
+              title="Morning brief notification"
+              text="Wake up to a preview of today's plan: 'Push day. 5 exercises. 45 min.' Your workout is ready before you open the app."
+            />
+            <FeatureBlock
+              title="Exercise form guides"
+              text="Tap any exercise for a visual guide and coaching cue. YouTube link for deeper form checks. No guessing."
             />
             <FeatureBlock
               title="Edit past workouts"
               text="Tap any workout in your history to adjust sets, reps, or weights. Add or remove sets. Delete workouts you don't want."
             />
             <FeatureBlock
-              title="Body composition context"
-              text="Height and weight input gives Forma the context to calibrate fuel guidance and track your body trend over 12 weeks."
-            />
-            <FeatureBlock
               title="Try before you pay"
-              text="Complete your first workout before seeing the paywall. Forma earns your subscription — it doesn't gate it."
+              text="Complete workouts before seeing the paywall. Forma earns your subscription — it doesn't gate it."
             />
           </div>
         </div>
       </section>
 
-      {/* ── 7. Who this is for ── */}
+      {/* ── 8. Who this is for ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto">
           <p className="text-[clamp(1.4rem,3vw,2.2rem)] leading-[1.4] text-[#7a7a7a] max-w-3xl">
@@ -258,7 +305,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 8. Social proof ── */}
+      {/* ── 9. Social proof ── */}
       <section className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto max-w-2xl">
           <div className="rounded-2xl border border-white/[0.04] bg-[#0d0d0d] p-8 md:p-12">
@@ -270,7 +317,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 9. Price ── */}
+      {/* ── 10. Price ── */}
       <section id="pricing" className="px-6 py-20 md:py-32">
         <div className="max-w-6xl mx-auto md:flex md:items-start md:justify-between md:gap-16">
           <div className="md:w-1/2 mb-12 md:mb-0">
@@ -280,27 +327,28 @@ export default function Home() {
               <span className="text-[#7a7a7a]">Everything. No tiers.</span>
             </h2>
             <p className="text-[15px] leading-relaxed text-[#7a7a7a] max-w-sm">
-              7-day free trial. Your first workout is free before you even see the paywall.
-              Cancel from your phone anytime.
+              7-day free trial. Cancel from your phone anytime.
             </p>
           </div>
           <div className="md:w-1/2 md:max-w-xs md:ml-auto space-y-3">
-            <PriceItem text="Evidence-based Push/Pull/Legs splits" />
+            <PriceItem text="Evidence-based Push/Pull/Legs/Upper/Pump splits" />
             <PriceItem text="Auto-progression when you&apos;re ready" />
             <PriceItem text="Automatic deload weeks" />
-            <PriceItem text="Smart rest timer that learns your pace" />
+            <PriceItem text="Live Activity timer on Lock Screen" />
+            <PriceItem text="Per-exercise history with load charts" />
             <PriceItem text="Muscle recovery heatmap" />
-            <PriceItem text="Weekly AI coaching recaps" />
-            <PriceItem text="PR detection and workout history" />
+            <PriceItem text="PR detection and milestone celebrations" />
+            <PriceItem text="Morning brief notifications" />
             <PriceItem text="Exercise form guides with coaching cues" />
             <PriceItem text="Shareable post-workout cards" />
+            <PriceItem text="Beginner-friendly coaching language" />
             <PriceItem text="Metric and imperial support" />
             <PriceItem text="Every future feature" />
           </div>
         </div>
       </section>
 
-      {/* ── 10. Close ── */}
+      {/* ── 11. Close ── */}
       <section id="get" className="px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif italic text-[clamp(2.2rem,5.5vw,4.2rem)] leading-[0.95] tracking-tight mb-6">
@@ -313,7 +361,7 @@ export default function Home() {
           </p>
           <a
             href="https://apps.apple.com/app/forma-smart-training/id6762664309"
-            className="inline-flex h-12 items-center rounded-full bg-[#f0f0f0] px-7 text-[14px] font-semibold text-black"
+            className="inline-flex h-12 items-center rounded-full bg-[#6b7fff] px-7 text-[14px] font-semibold text-black"
           >
             Download for iOS &rarr;
           </a>
@@ -372,6 +420,16 @@ function Rule({ trigger, result }: { trigger: string; result: string }) {
     <div className="border-t border-white/[0.04] py-8 md:py-10 md:flex md:gap-16">
       <p className="text-[15px] text-[#7a7a7a] md:w-1/2" dangerouslySetInnerHTML={{ __html: trigger }} />
       <p className="text-[15px] font-medium text-[#f0f0f0] mt-2 md:mt-0 md:w-1/2" dangerouslySetInnerHTML={{ __html: result }} />
+    </div>
+  );
+}
+
+function SplitDay({ day, type, emphasis, rest }: { day: string; type: string; emphasis?: string; rest?: boolean }) {
+  return (
+    <div className={`rounded-lg py-3 px-1 text-center ${rest ? 'border border-white/[0.04]' : 'bg-[#1c1c1c]'}`}>
+      <p className="font-mono text-[9px] uppercase tracking-wider text-[#7a7a7a] mb-1">{day}</p>
+      <p className={`text-[11px] font-semibold ${rest ? 'text-[#7a7a7a]/50' : 'text-[#f0f0f0]'}`}>{type}</p>
+      {emphasis ? <p className="text-[9px] text-[#7a7a7a] mt-0.5">{emphasis}</p> : null}
     </div>
   );
 }
